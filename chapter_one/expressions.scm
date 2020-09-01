@@ -1,11 +1,24 @@
-;; 1.1.1 Expressions
+;;; 1.1.1 Expressions
 
-(+ 137 349)
+;; helper to to display and expression and print a newline
+(define (print-expr expr)
+  (display expr)
+  (newline))
 
-(- 1000 334)
+(print-expr (+ 137 349))
 
-(* 5 99)
+(print-expr (- 1000 334))
 
-(/ 10 5)
+(print-expr (* 5 99))
 
-(+ 2.7 10)
+(print-expr (/ 10 5))
+
+(print-expr (+ 2.7 10))
+
+(print-expr (+ 21 35 12 7))
+
+(print-expr (* 25 4 12))
+
+(print-expr (+ (* 3 5) (- 10 6)))
+
+(print-expr (+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6)))
