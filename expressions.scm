@@ -1,5 +1,4 @@
 ;;; 1.1.1 Expressions
-;;; run with guile --no-auto-compile -s expressions.scm
 
 ;; helper to display an expressions evaluation and print a newline
 (define (print-expr expr)

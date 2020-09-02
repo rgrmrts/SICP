@@ -1,5 +1,4 @@
 ;;; 1.1.2 Naming and the Environment
-;;; run with guile --no-auto-compile -s naming-and-the-environment.scm
 
 ;; helper to display an expressions evaluation and print a newline
 (define (print-expr expr)
