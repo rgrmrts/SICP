@@ -81,3 +81,24 @@
 
 (sum-of-two-largest-squares 1 2 3)
 (sum-of-two-largest-squares -10 -2 2)
+
+;; Exercise 1.4
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+;; conditionally use + or - operator based on the value of b
+
+;; Exercise 1.5
+(define (p) (p))
+
+(define (test x y)
+  (if (= x 0)
+      0
+      y))
+
+(test 0 (p))
+;; (p) is a procedure that calls itself, this is an infinite loop
+;; calling the test procedure will above will loop forever, because
+;; the second argument, (p), will be evaluated first and will loop
+;; forever. This applies to applicative-order evaluation. With
+;; normal-order evaluation, the call to test above will simply
+;; evaluate to 0.
