@@ -121,6 +121,8 @@
       y))
 
 (test 0 (p))
+;; NOTE: evaluating this entire buffer will stall due to this, if you're running
+;;       you might want to comment this out first.
 ;; (p) is a procedure that calls itself, this is an infinite loop
 ;; calling the test procedure will above will loop forever, because
 ;; the second argument, (p), will be evaluated first and will loop
