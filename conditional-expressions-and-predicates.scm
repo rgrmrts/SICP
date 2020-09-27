@@ -91,8 +91,21 @@
      (let ((smallest (min x y z)))
        (* smallest smallest))))
 
-(sum-of-two-largest-squares-let 1 2 3)
-(sum-of-two-largest-squares-let -10 -2 2)
+;; breaking this out into it's own function
+(define (smallest-square x y z)
+  (let ((smallest (min x y z)))
+    (* smallest smallest)))
+
+;; same here
+(define (sum-of-squares x y z)
+  (+ (* x x)
+     (* y y)
+     (* z z)))
+
+;; composing the solution with helper functions defined above
+(define (simpler-sum-of-two-largest-squares x y z)
+  (- (sum-of-squares x y z)
+     (smallest-square x y z)))
 
 ;; Exercise 1.4
 (define (a-plus-abs-b a b)
