@@ -82,6 +82,18 @@
 (sum-of-two-largest-squares 1 2 3)
 (sum-of-two-largest-squares -10 -2 2)
 
+;; we haven't gotten to scoped bindings yet, but I wanted to add this in
+;; to show a quick optimization to avoid running min twice
+(define (sum-of-two-largest-squares-let x y z)
+  (- (+ (* x x)
+        (* y y)
+        (* z z))
+     (let ((smallest (min x y z)))
+       (* smallest smallest))))
+
+(sum-of-two-largest-squares-let 1 2 3)
+(sum-of-two-largest-squares-let -10 -2 2)
+
 ;; Exercise 1.4
 (define (a-plus-abs-b a b)
   ((if (> b 0) + -) a b))
