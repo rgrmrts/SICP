@@ -42,11 +42,11 @@
 (define (new-sqrt-iter guess x)
   (new-if (good-enough? guess x)
           guess
-          (improved-sqrt-iter (improve guess x)
+          (new-sqrt-iter (improve guess x)
                               x)))
 
 (define (new-square-root x)
-  (improved-sqrt-iter 1.0 x))
+  (new-sqrt-iter 1.0 x))
 
 ;; re-run with improved sqrt
 ;; (new-square-root 9)
@@ -56,5 +56,9 @@
 ;; (square (square-root 1000))
 
 ;; turns out this does not finish computation and runs forever.
+;; our new-if will evaluate the predicate, then-clause, and else-clause
+;; at the same time (i.e. eager evaluation) and since the else-clause is
+;; a recursive call, despite what good-enough? returns the else-clause
+;; will keep running and eventually lead to a filled up heap
 
 ;; exercise 1.7
