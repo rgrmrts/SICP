@@ -30,3 +30,31 @@
 (square-root (+ (square-root 2)
                 (square-root 3)))
 (square (square-root 1000))
+
+;; exercise 1.6
+(define (new-if predicate then-clause else-clause)
+  (cond (predicate then-clause)
+        (else else-clause)))
+
+(new-if (= 2 3) 0 5)
+(new-if (= 1 1) 0 5)
+
+(define (new-sqrt-iter guess x)
+  (new-if (good-enough? guess x)
+          guess
+          (improved-sqrt-iter (improve guess x)
+                              x)))
+
+(define (new-square-root x)
+  (improved-sqrt-iter 1.0 x))
+
+;; re-run with improved sqrt
+;; (new-square-root 9)
+;; (new-square-root (+ 100 37))
+;; (new-square-root (+ (new-square-root 2)
+;;                     (new-square-root 3)))
+;; (square (square-root 1000))
+
+;; turns out this does not finish computation and runs forever.
+
+;; exercise 1.7
