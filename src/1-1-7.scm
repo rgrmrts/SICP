@@ -62,3 +62,9 @@
 ;; will keep running and eventually lead to a filled up heap
 
 ;; exercise 1.7
+;; example for small numbers:
+;; (square-root 4) evaluates to 2.0000000929222947
+;; this is obviously not accurate due to floating point precision issues
+;; example for large numbers:
+;; (square-root 975461057789971041) evalutes to 987654321.0
+;; this is still a floating point integer instread of a whole number
