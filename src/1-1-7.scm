@@ -68,3 +68,22 @@
 ;; example for large numbers:
 ;; (square-root 975461057789971041) evalutes to 987654321.0
 ;; this is still a floating point integer instread of a whole number
+
+;; exercise 1.8
+;; newtons method for cube roots is based on the fact that if y is an approximation
+;; to the cube root of x, then a better approximation is given by the value
+;; ((x/y^2) + 2y) / 3
+
+(define (improve guess x)
+  (/ (+ (/ x (square guess)) (* 2 guess)) 3))
+
+(define (good-enough? guess x)
+  (= (improve guess x) guess))
+
+(define (cube-root-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (cube-root-iter (improve guess x) x)))
+
+(define (cube-root x)
+  (cube-root-iter 1.0 x))
